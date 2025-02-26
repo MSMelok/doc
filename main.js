@@ -1,7 +1,7 @@
 // Theme handling
 function initTheme() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.className = prefersDark ? 'dark' : 'light';
+    // Always set dark theme by default
+    document.documentElement.className = 'dark';
 }
 
 function toggleTheme() {
@@ -136,6 +136,40 @@ function copyToClipboard() {
             console.error('Failed to copy text: ', err);
             showNotification('Failed to copy to clipboard', 'error');
         });
+}
+
+// Reset form
+function resetForm() {
+    // Reset form fields
+    document.getElementById('callerType').selectedIndex = 0;
+    document.getElementById('otherUserName').value = '';
+    document.getElementById('callbackNumber').value = '';
+    document.getElementById('callReason').selectedIndex = 0;
+    document.getElementById('agentNotes').value = '';
+    document.getElementById('currentCount').textContent = '0';
+    
+    // Hide other user fields
+    document.getElementById('otherUserFields').classList.add('hidden');
+    
+    // Clear output template
+    document.getElementById('outputTemplate').textContent = '';
+    
+    // Disable copy button
+    document.getElementById('copyButton').disabled = true;
+    
+    // Remove error classes
+    document.querySelectorAll('.form-group').forEach(group => {
+        group.classList.remove('error');
+    });
+    
+    // Reset validation state
+    formState = {
+        otherUserName: true,
+        callbackNumber: true,
+        agentNotes: true
+    };
+    
+    showNotification('Form has been reset', 'success');
 }
 
 // Add input event listeners for real-time validation
