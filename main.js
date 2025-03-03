@@ -49,14 +49,14 @@ document.getElementById('agentNotes').addEventListener('input', function() {
 // Handle caller type changes
 document.getElementById('callerType').addEventListener('change', function() {
     const otherUserFields = document.getElementById('otherUserFields');
-    
+
     if (this.value === 'Other User') {
         otherUserFields.classList.remove('hidden');
     } else {
         otherUserFields.classList.add('hidden');
         document.getElementById('otherUserName').value = '';
     }
-    
+
     validateForm();
 });
 
@@ -65,7 +65,7 @@ function validateForm() {
     const callerType = document.getElementById('callerType').value;
     const callbackNumber = document.getElementById('callbackNumber').value;
     const agentNotes = document.getElementById('agentNotes').value;
-    
+
     // Reset validation state
     formState = {
         otherUserName: true,
@@ -138,6 +138,44 @@ function copyToClipboard() {
         });
 }
 
+// Show reset confirmation modal
+function showResetConfirmation() {
+    const modal = document.getElementById('resetConfirmationModal');
+    modal.classList.add('show');
+}
+
+// Handle reset confirmation
+function handleResetConfirmation(confirmed) {
+    const modal = document.getElementById('resetConfirmationModal');
+    modal.classList.remove('show');
+
+    if (confirmed) {
+        resetForm();
+    }
+}
+
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('resetConfirmationModal');
+    if (event.target === modal) {
+        modal.classList.remove('show');
+    }
+});
+
+// Add escape key handler for modal
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('resetConfirmationModal');
+        modal.classList.remove('show');
+    }
+});
+
+// Confirm reset
+function confirmReset() {
+    showResetConfirmation();
+}
+
 // Reset form
 function resetForm() {
     // Reset form fields
@@ -147,28 +185,28 @@ function resetForm() {
     document.getElementById('callReason').selectedIndex = 0;
     document.getElementById('agentNotes').value = '';
     document.getElementById('currentCount').textContent = '0';
-    
+
     // Hide other user fields
     document.getElementById('otherUserFields').classList.add('hidden');
-    
+
     // Clear output template
     document.getElementById('outputTemplate').textContent = '';
-    
+
     // Disable copy button
     document.getElementById('copyButton').disabled = true;
-    
+
     // Remove error classes
     document.querySelectorAll('.form-group').forEach(group => {
         group.classList.remove('error');
     });
-    
+
     // Reset validation state
     formState = {
         otherUserName: true,
         callbackNumber: true,
         agentNotes: true
     };
-    
+
     showNotification('Form has been reset', 'success');
 }
 
@@ -176,3 +214,16 @@ function resetForm() {
 ['otherUserName', 'callbackNumber', 'agentNotes'].forEach(id => {
     document.getElementById(id).addEventListener('input', validateForm);
 });
+
+// Assuming a reset button with id 'resetButton' exists
+document.getElementById('resetButton').addEventListener('click', confirmReset);
+
+// Initialize spellcheck when the page loads
+document.addEventListener('DOMContentLoaded', initSpellcheck);
+
+// Initialize spellcheck
+function initSpellcheck() {
+    const agentNotes = document.getElementById('agentNotes');
+    agentNotes.spellcheck = true;
+    agentNotes.lang = 'en';
+}
