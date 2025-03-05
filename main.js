@@ -76,26 +76,19 @@ function isValidPhoneNumber(phone) {
 
 // Autocomplete functionality
 const commonPhrases = [
-    "Customer reported issue with ",
-    "Verified customer identity and account details",
-    "Checked system status - ",
-    "Reproduced the issue by ",
-    "Applied troubleshooting steps: ",
-    "Customer confirmed resolution",
-    "Escalated to tier 2 support",
-    "Provided documentation links: ",
-    "Scheduled follow-up for ",
-    "Issue resolved - ",
-    "Created ticket number ",
-    "Updated customer profile with ",
-    "Advised customer regarding ",
-    "Set up remote session to ",
-    "Customer requested ",
-    "Verified recent transactions",
-    "Implemented security measures",
-    "Restored account access",
-    "Updated billing information",
-    "Processed refund for "
+    "called to report",
+    "called to complaint ",
+    "issue Resolved",
+    "escalated to ",
+    "escalated to Shared Services ",
+    "escalated to Local Supervisor ",
+    "escalated to Live Supervisor ",
+    "Xfer to ",
+    "xfer to Retention ",
+    "xfer to Sales ",
+    "xfer to Mobile Sales ",
+    "xfer to Billing ",
+    "xfer to Spanish ",
 ];
 
 let currentPhrases = [];
