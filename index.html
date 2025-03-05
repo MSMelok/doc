@@ -30,16 +30,7 @@
         <h1>Support Call Documentation</h1>
         <div class="form-container">
             <div class="form-group">
-                <label for="callerType">
-                    Caller Type
-                    <span class="tooltip-trigger" data-tooltip="Select who is making the call: the account owner, an authorized user, or someone else">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                    </span>
-                </label>
+                <label for="callerType">Caller Type</label>
                 <select id="callerType">
                     <option value="Account Holder">Account Holder</option>
                     <option value="Authorized User">Authorized User</option>
@@ -48,46 +39,19 @@
             </div>
 
             <div class="form-group hidden" id="otherUserFields">
-                <label for="otherUserName">
-                    Caller Name
-                    <span class="tooltip-trigger" data-tooltip="Enter the full name of the person making the call">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                    </span>
-                </label>
+                <label for="otherUserName">Caller Name</label>
                 <input type="text" id="otherUserName" placeholder="Enter caller's name">
                 <div class="error-message">Please enter the caller's name</div>
             </div>
 
             <div class="form-group">
-                <label for="callbackNumber">
-                    Best Callback Number
-                    <span class="tooltip-trigger" data-tooltip="Enter a valid phone number with country code, e.g., +1 (555) 123-4567">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                    </span>
-                </label>
+                <label for="callbackNumber">Best Callback Number</label>
                 <input type="tel" id="callbackNumber" placeholder="e.g., +1 (555) 123-4567">
                 <div class="error-message">Please enter a valid callback number</div>
             </div>
 
             <div class="form-group">
-                <label for="callReason">
-                    Call Reason
-                    <span class="tooltip-trigger" data-tooltip="Select the primary reason for the support call">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                    </span>
-                </label>
+                <label for="callReason">Call Reason</label>
                 <select id="callReason">
                     <option value="Technical Related">Technical Related</option>
                     <option value="Billing Related">Billing Related</option>
@@ -96,16 +60,7 @@
             </div>
 
             <div class="form-group">
-                <label for="agentNotes">
-                    Agent Notes
-                    <span class="tooltip-trigger" data-tooltip="Document the details of the call, including any actions taken or information provided">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                    </span>
-                </label>
+                <label for="agentNotes">Agent Notes</label>
                 <div class="textarea-container">
                     <textarea 
                         id="agentNotes" 
@@ -117,6 +72,7 @@
                         autocorrect="on"
                         class="custom-scrollbar"
                     ></textarea>
+                    <div class="autocomplete-container"></div>
                 </div>
                 <div class="character-count">
                     <span id="currentCount">0</span>/<span id="maxCount">2000</span>
@@ -158,7 +114,7 @@
     <div id="notification" class="notification"></div>
 
     <footer class="footer">
-        <p>Designed & Developed by <a href="https://msmelok.github.io/R4_2.0" target="_blank">Muhammad Meluk</a></p>
+        <p>Support Call Documentation Tool</p>
     </footer>
     
     <script src="main.js"></script>
